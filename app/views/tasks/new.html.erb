@@ -1,0 +1,7 @@
+<h1>タスク新規登録</h1>
+<%= form_for(@tasks) do |f|
+  <%= f.label = :content, "タスク"%>
+  <%= f.text_field = :content%>
+<%end%>
+
+<%=link_to "一覧に戻る", tasks_path %>
