@@ -1,5 +1,5 @@
-<hi>id:<%=@tasks%>のタスク編集</hi>
-<%= form_for (@tasks) do |f|%>
+<hi>id:<%=@task.id%>のタスク編集</hi>
+<%= form_for (@task) do |f|%>
   <%=f.label :content, "タスク"%>
   <%=f.text_field :content %>
   
