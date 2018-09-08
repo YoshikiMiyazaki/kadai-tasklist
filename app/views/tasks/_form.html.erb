@@ -1,5 +1,9 @@
+<div class ="low">
+  <div class = "col-xs-6">
+</div>
 <%= form_for(task) do |f| %>
 <% if task.errors.any? %>
+  <div class="alert alert-warning">
     <div id="error_explanation">
       <ul>
         <% task.errors.full_messages.each do |message| %>
@@ -7,12 +11,19 @@
         <% end %>
       </ul>
     </div>
+  </div>
   <% end %>
-  <%= f.label :status, 'ステータス' %>
-  <%= f.text_field :status %>
+  <div class = "form-group">
+    <%= f.label :status, 'ステータス' %>
+    <%= f.text_field :status, class: 'form-control'%>
+  </div>
+  <div class = "form-group">
+   <%= f.label :content, 'メッセージ' %>
+  <%= f.text_field :content, class: 'form-control' %> 
+  </div>
   
-  <%= f.label :content, 'メッセージ' %>
-  <%= f.text_field :content %>
 
-  <%= f.submit '投稿' %>
+  <%= f.submit '投稿', class: 'btn btn-primary' %>
 <% end %>
+  </div>
+</div>

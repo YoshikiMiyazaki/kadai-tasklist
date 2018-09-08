@@ -1,3 +1,3 @@
 <% flash.each do |message_type,message|%>
-  <div><%=message%></div>
+  <div class = "alart alart-<%= message_type %>"><%=message%></div>
 <%end%>
