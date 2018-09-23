@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
+  before_action :require_user_logged_in
   before_action :set_task, only: [:show,:destroy,:edit,:update]
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def show
@@ -12,7 +13,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     
     if @task.save
       flash[:success] = "タスクが追加されました！"
@@ -49,7 +50,7 @@ class TasksController < ApplicationController
 
   # Strong Parameter
   def task_params
-      params.require(:task).permit(:content,:status)
+    params.require(:task).permit(:content, :status)
   end 
   
   def set_task
